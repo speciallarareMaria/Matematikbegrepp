@@ -1,45 +1,34 @@
-const cardButtons = document.querySelectorAll(".card-front");
+const toggleButtons = document.querySelectorAll(".card-toggle");
 const toggleAllBtn = document.getElementById("toggleAllBtn");
 
-function setCardState(button, expanded) {
-  const answer = button.nextElementSibling;
-  button.setAttribute("aria-expanded", expanded ? "true" : "false");
-  answer.hidden = !expanded;
+function setOpenState(button, isOpen) {
+  const content = button.nextElementSibling;
+  button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  content.hidden = !isOpen;
 }
 
-cardButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const isExpanded = button.getAttribute("aria-expanded") === "true";
-    setCardState(button, !isExpanded);
-    updateToggleAllButtonText();
-  });
-});
-
-function allCardsOpen() {
-  return [...cardButtons].every(
+function areAllOpen() {
+  return [...toggleButtons].every(
     (button) => button.getAttribute("aria-expanded") === "true"
   );
 }
 
-function openAllCards() {
-  cardButtons.forEach((button) => setCardState(button, true));
+function updateMainButton() {
+  toggleAllBtn.textContent = areAllOpen() ? "Stäng alla kort" : "Visa alla kort";
 }
 
-function closeAllCards() {
-  cardButtons.forEach((button) => setCardState(button, false));
-}
-
-function updateToggleAllButtonText() {
-  toggleAllBtn.textContent = allCardsOpen() ? "Dölj alla svar" : "Visa alla svar";
-}
-
-toggleAllBtn.addEventListener("click", () => {
-  if (allCardsOpen()) {
-    closeAllCards();
-  } else {
-    openAllCards();
-  }
-  updateToggleAllButtonText();
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+    setOpenState(button, !isOpen);
+    updateMainButton();
+  });
 });
 
-updateToggleAllButtonText();
+toggleAllBtn.addEventListener("click", () => {
+  const shouldOpen = !areAllOpen();
+  toggleButtons.forEach((button) => setOpenState(button, shouldOpen));
+  updateMainButton();
+});
+
+updateMainButton();
