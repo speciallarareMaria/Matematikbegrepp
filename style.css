@@ -1,17 +1,18 @@
 :root {
-  --bg: #f5f7fb;
-  --card: #ffffff;
-  --soft: #f8fbff;
-  --line: #dbe4ee;
-  --text: #233142;
-  --muted: #5b6b7c;
-  --blue: #2c6bed;
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --border: #d9e2ec;
+  --text: #22303c;
+  --muted: #5f6c7b;
+  --blue: #2f6fed;
   --blue-soft: #eaf2ff;
-  --green-soft: #eefaf2;
-  --green-line: #cfe9d8;
-  --yellow-soft: #fff8e8;
-  --yellow-line: #f0dfaa;
-  --shadow: 0 8px 24px rgba(28, 56, 105, 0.08);
+  --green-soft: #edf9ef;
+  --green-border: #cfe8d4;
+  --yellow-soft: #fff9e8;
+  --yellow-border: #efdfab;
+  --pink-soft: #fff1f1;
+  --pink-border: #efcaca;
+  --shadow: 0 8px 22px rgba(30, 60, 114, 0.08);
   --radius: 16px;
 }
 
@@ -19,158 +20,145 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .container {
-  width: min(1080px, calc(100% - 2rem));
+  width: min(1000px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
 .site-header {
   background: #ffffff;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   padding: 2.5rem 0 2rem;
 }
 
-.header-badge {
+.site-label {
   display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
   background: var(--blue-soft);
   color: var(--blue);
-  border: 1px solid #cdddfd;
-  border-radius: 999px;
-  padding: 0.35rem 0.75rem;
-  font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 h1 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.8rem;
   font-size: clamp(2rem, 5vw, 3.2rem);
 }
 
 .lead {
-  max-width: 760px;
   margin: 0;
+  max-width: 720px;
   color: var(--muted);
   font-size: 1.05rem;
 }
 
-.toolbar {
+.topic-menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.menu-links {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem 0 1.5rem;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 0;
 }
 
-.toolbar-text {
-  margin: 0;
-  color: var(--muted);
-}
-
-.toolbar-button {
-  border: 1px solid #cdddfd;
-  background: #fff;
+.menu-links a {
+  text-decoration: none;
   color: var(--blue);
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
+  background: var(--blue-soft);
+  border: 1px solid #cfe0ff;
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
   font-size: 0.95rem;
   font-weight: 700;
-  cursor: pointer;
 }
 
-.toolbar-button:hover {
-  background: var(--blue-soft);
+.menu-links a:hover {
+  background: #dceaff;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 1rem;
-  padding-bottom: 3rem;
+.content {
+  padding: 2rem 0 3rem;
 }
 
-.math-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+.math-section {
+  margin-bottom: 2rem;
 }
 
-.card-toggle {
-  width: 100%;
-  border: 0;
-  background: var(--card);
-  text-align: left;
-  cursor: pointer;
-  padding: 1.2rem;
-  color: inherit;
+.section-header {
+  margin-bottom: 1rem;
 }
 
-.card-toggle:hover {
-  background: var(--soft);
-}
-
-.card-label {
+.section-tag {
   display: inline-block;
-  background: var(--blue-soft);
-  color: var(--blue);
+  margin-bottom: 0.6rem;
+  background: #eef2f7;
+  color: #4c5a69;
   border-radius: 999px;
   padding: 0.3rem 0.65rem;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  margin-bottom: 0.8rem;
 }
 
-.card-toggle h2 {
-  margin: 0 0 0.45rem;
-  font-size: 1.15rem;
-}
-
-.card-toggle p {
+.math-section h2 {
   margin: 0;
-  color: var(--muted);
+  font-size: 1.7rem;
 }
 
-.card-content {
-  padding: 0 1.2rem 1.2rem;
-  border-top: 1px solid var(--line);
-  background: #fcfdff;
+.info-card,
+.example-card,
+.practice-card,
+.formula-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.85rem;
+  box-shadow: var(--shadow);
 }
 
-.block {
-  margin-top: 1rem;
-  padding: 0.95rem 1rem;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid #e7edf5;
+.info-card h3,
+.example-card h3,
+.practice-card h3,
+.formula-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
-.block h3 {
-  margin: 0 0 0.4rem;
-  font-size: 0.98rem;
-}
-
-.block p {
-  margin: 0.25rem 0;
-}
-
-.example-box {
+.example-card {
   background: var(--green-soft);
-  border-color: var(--green-line);
+  border-color: var(--green-border);
 }
 
-.practice-box {
+.practice-card {
   background: var(--yellow-soft);
-  border-color: var(--yellow-line);
+  border-color: var(--yellow-border);
+}
+
+.formula-card {
+  background: var(--pink-soft);
+  border-color: var(--pink-border);
 }
 
 .answer {
@@ -179,19 +167,22 @@ h1 {
 
 .site-footer {
   background: #ffffff;
-  border-top: 1px solid var(--line);
-  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.95rem;
+  padding: 1.25rem 0;
 }
 
-@media (max-width: 720px) {
-  .toolbar {
+@media (max-width: 700px) {
+  .menu-links {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .toolbar-button {
-    width: 100%;
+  .menu-links a {
+    text-align: center;
+  }
+
+  .math-section h2 {
+    font-size: 1.4rem;
   }
 }
