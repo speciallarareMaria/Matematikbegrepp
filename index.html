@@ -1,6 +1,67 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Interaktiva matematikverktyg för elever</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        soft: {
+                            bg: '#f4f3ef',
+                            surface: '#ffffff',
+                            text: '#4a4b50',
+                            muted: '#8c8d92',
+                            border: '#d6d4d0',
+                            blue: '#5b80a5',
+                            blueLight: '#8db1d1',
+                            green: '#4f7c75',
+                            greenLight: '#8bb39c',
+                            purple: '#6a6281',
+                            purpleLight: '#938db3',
+                            pink: '#a85c72',
+                            pinkLight: '#d58b99',
+                            yellow: '#dec894',
+                            yellowDark: '#b8a36e',
+                            teal: '#3d8a8a',
+                            tealLight: '#72b5b5'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        body { font-family: 'Nunito', sans-serif; touch-action: none; overflow: hidden; background-color: #f4f3ef; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d6d4d0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8c8d92; }
+        .workspace { position: relative; width: 100%; height: 100%; overflow: hidden; background-image: radial-gradient(#d6d4d0 1px, transparent 1px); background-size: 20px 20px; }
+        .draggable-item { position: absolute; cursor: grab; user-select: none; touch-action: none; filter: drop-shadow(0 4px 6px rgba(74,75,80,0.1)); transition: filter 0.2s; transform-origin: center center; }
+        .draggable-item:active { cursor: grabbing; filter: drop-shadow(0 8px 15px rgba(74,75,80,0.2)); z-index: 50 !important; }
+        .draggable-item.selected { /* no outline */ }
+        .clock-hand { cursor: pointer; }
+        .clock-hand:hover { opacity: 0.75; }
+        .view-section { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .view-section.active { display: flex; opacity: 1; }
+        #canvas-container { width: 100%; height: 100%; cursor: move; }
+        .geo-btn { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:6px 4px; background:#f4f3ef; border:1px solid #d6d4d0; border-radius:10px; font-size:11px; font-weight:700; color:#4a4b50; cursor:pointer; transition:all 0.15s; }
+        .geo-btn:hover { background:white; box-shadow:0 2px 8px rgba(74,75,80,0.12); }
+        .geo-3d-card { position:absolute; cursor:grab; user-select:none; touch-action:none; transform-origin:top left; }
+        .geo-3d-card:active { cursor:grabbing; }
+        .angle-card { position:absolute; user-select:none; touch-action:none; transform-origin:top left; border-radius:14px; box-shadow:0 4px 16px rgba(74,75,80,0.15); border:1px solid #d6d4d0; background:white; overflow:visible; }
+        .geo-resize-handle { position:absolute; bottom:-4px; right:-4px; width:22px; height:22px; background:white; border:2px solid #8c8d92; border-radius:5px; cursor:nwse-resize; display:flex; align-items:center; justify-content:center; font-size:15px; color:#4a4b50; user-select:none; touch-action:none; z-index:10; font-weight:900; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+        .math-grid-cell { transition: all 0.1s; }
+        .math-grid-cell:hover { background-color: #f4f3ef; transform: scale(1.1); z-index: 10; font-weight: bold; border-radius: 4px; }
+        .highlight-row-col { background-color: #f4f3ef; }
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matematikbegrepp</title>
