@@ -1,0 +1,131 @@
+html
+
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mattekort – Procent</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Mattekort</p>
+      <h1>Procent</h1>
+      <p class="intro">
+        Klicka på ett kort för att visa förklaring och exempel.
+        Här tränar du grunderna i procent steg för steg.
+      </p>
+    </div>
+  </header>
+  <main class="container">
+    <section class="topbar">
+      <div>
+        <h2>Kort att träna på</h2>
+        <p class="muted">6 grundläggande kort om procent.</p>
+      </div>
+      <button id="toggleAllBtn" class="secondary-btn" type="button">
+        Visa alla svar
+      </button>
+    </section>
+    <section class="cards" aria-label="Mattekort om procent">
+      <article class="card">
+        <button class="card-front" type="button" aria-expanded="false">
+          <span class="card-number">Kort 1</span>
+          <h3>Vad betyder procent?</h3>
+          <p>Förklara vad 1 % egentligen betyder.</p>
+        </button>
+        <div class="card-back" hidden>
+          <p><strong>Procent</strong> betyder <strong>hundradelar</strong>.</p>
+          <p>1 % betyder alltså 1 av 100, alltså $$\frac{1}{100}$$.</p>
+          <p>Exempel: 25 % betyder 25 av 100.</p>
+          <p class="example">Minnesregel: Ordet procent kan tolkas som “per hundra”.</p>
+        </div>
+      </article>
+      <article class="card">
+        <button class="card-front" type="button" aria-expanded="false">
+          <span class="card-number">Kort 2</span>
+          <h3>Hur skriver man procent i decimalform?</h3>
+          <p>Omvandla procent till decimal.</p>
+        </button>
+        <div class="card-back" hidden>
+          <p>För att skriva procent i decimalform delar du med 100.</p>
+          <p>Exempel:</p>
+          <ul>
+            <li>50 % = 0,50 = 0,5</li>
+            <li>25 % = 0,25</li>
+            <li>7 % = 0,07</li>
+          </ul>
+          <p class="example">Minnesregel: Flytta decimaltecknet två steg åt vänster.</p>
+        </div>
+      </article>
+      <article class="card">
+        <button class="card-front" type="button" aria-expanded="false">
+          <span class="card-number">Kort 3</span>
+          <h3>Hur räknar man ut en viss procent av något?</h3>
+          <p>Räkna ut till exempel 25 % av 200.</p>
+        </button>
+        <div class="card-back" hidden>
+          <p>Skriv först procenten i decimalform och multiplicera sedan.</p>
+          <p>25 % = 0,25</p>
+          <p>$$0,25 \times 200 = 50$$</p>
+          <p><strong>Svar:</strong> 25 % av 200 är 50.</p>
+          <p class="example">Metod: procent i decimalform × hela talet.</p>
+        </div>
+      </article>
+      <article class="card">
+        <button class="card-front" type="button" aria-expanded="false">
+          <span class="card-number">Kort 4</span>
+          <h3>Hur räknar man ut hur många procent något är?</h3>
+          <p>Ta reda på hur stor andel i procent något utgör.</p>
+        </button>
+        <div class="card-back" hidden>
+          <p>Använd formeln:</p>
+          <p>$$\frac{delen}{det\ hela} \times 100$$</p>
+          <p>Exempel: 15 av 60</p>
+          <p>$$\frac{15}{60} \times 100 = 25$$</p>
+          <p><strong>Svar:</strong> 15 är 25 % av 60.</p>
+        </div>
+      </article>
+      <article class="card">
+        <button class="card-front" type="button" aria-expanded="false">
+          <span class="card-number">Kort 5</span>
+          <h3>Procentuell ökning</h3>
+          <p>Hur räknar man när något ökar med till exempel 10 %?</p>
+        </button>
+        <div class="card-back" hidden>
+          <p>Om något ökar med 10 % betyder det att du lägger till 10 % av det ursprungliga värdet.</p>
+          <p>Exempel: 200 kr ökar med 10 %</p>
+          <p>10 % av 200 är 20</p>
+          <p>$$200 + 20 = 220$$</p>
+          <p><strong>Nytt värde:</strong> 220 kr</p>
+          <p class="example">Snabbmetod: multiplicera med 1,10 vid 10 % ökning.</p>
+        </div>
+      </article>
+      <article class="card">
+        <button class="card-front" type="button" aria-expanded="false">
+          <span class="card-number">Kort 6</span>
+          <h3>Procentuell minskning</h3>
+          <p>Hur räknar man när något minskar med till exempel 20 %?</p>
+        </button>
+        <div class="card-back" hidden>
+          <p>Om något minskar med 20 % tar du bort 20 % av ursprungsvärdet.</p>
+          <p>Exempel: 500 kr minskar med 20 %</p>
+          <p>20 % av 500 är 100</p>
+          <p>$$500 - 100 = 400$$</p>
+          <p><strong>Nytt värde:</strong> 400 kr</p>
+          <p class="example">Snabbmetod: multiplicera med 0,80 vid 20 % minskning.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>Byggd som en enkel övningssida för procent.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
