@@ -111,56 +111,7 @@
         <p>Former, vinklar, omkrets, area och skala.</p>
       </div>
     </section>
-  </main>
-    // ─── Smartboard / Presentation mode ───────────────────────────────────────
-
-    /** Toggle fullscreen for the entire page. Works for all views. */
-    function toggleViewFullscreen() {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-        } else {
-            document.exitFullscreen();
-        }
-    }
-
-    /**
-     * Toggle the slide-in control panel for the given view in presenting mode.
-     * @param {string} viewId - The view whose panel should be toggled.
-     */
-    function toggleViewSidebar(viewId) {
-        const viewSection = document.getElementById('view-' + viewId);
-        if (!viewSection) return;
-        const isVisible = viewSection.classList.toggle('panel-visible');
-        const lbl = document.getElementById(viewId + '-ctrl-lbl');
-        if (lbl) lbl.textContent = isVisible ? 'Dölj' : 'Kontroller';
-        const panel = document.getElementById(viewId + '-float-panel');
-        if (panel) {
-            const toggleBtn = panel.querySelector('button:first-child');
-            if (toggleBtn) toggleBtn.setAttribute('aria-expanded', isVisible ? 'true' : 'false');
-        }
-    }
-
-    document.addEventListener('fullscreenchange', () => {
-        const isFs = !!document.fullscreenElement;
-        const viewSection = document.getElementById('view-' + currentView);
-        if (viewSection) {
-            viewSection.classList.toggle('presenting', isFs);
-            if (!isFs) {
-                viewSection.classList.remove('panel-visible');
-                const lbl = document.getElementById(currentView + '-ctrl-lbl');
-                if (lbl) lbl.textContent = 'Kontroller';
-            }
-        }
-        const btn = document.getElementById(currentView + '-fs-btn');
-        if (btn) {
-            btn.innerHTML = isFs
-                ? '<i class="fas fa-compress"></i> Avsluta helskärm'
-                : '<i class="fas fa-expand"></i> Helskärm';
-        }
-        // Re-render views that depend on canvas size after fullscreen toggle
-        VIEW_REGISTRY[currentView]?.onResize && setTimeout(VIEW_REGISTRY[currentView].onResize, 80);
-    });
-
+  </main>  
   <footer class="site-footer">
     <div class="container">
       <p>Matematikbegrepp</p>
