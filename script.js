@@ -65,6 +65,7 @@ function generateCards(cards, gridId) {
 generateCards(procentCards, 'procent-card-grid');
 generateCards(brakCards, 'bråk-card-grid');
 generateCards(tidCards, 'tid-card-grid');
+generateCards(numbersenseCards, 'taluppfattning-card-grid');
 
 // Dark mode
 const darkBtn = document.getElementById('toggleDarkMode');
