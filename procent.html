@@ -1,218 +1,88 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matematikbegrepp – Procent</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Procent – Matematikbegrepp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Nunito', 'Roboto', Arial, sans-serif;}
+    .bg-procent {
+      background: linear-gradient(160deg, #f4c7f8 0%, #e5d9fa 100%);
+    }
+    .procent-card {
+      background: #fff;
+      border: 1.5px dotted #d6a2fc;
+      border-radius: 24px;
+      box-shadow: 0 3px 18px #cfaad326;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      min-width: 270px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .procent-card img, .procent-card svg {
+      margin-top: 1rem; margin-bottom: .2rem; max-width: 95%;
+      align-self: center;
+    }
+    .kort-rubrik {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #9134b8;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .kort-kommentar {
+      color: #8c38a8;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+      margin-top: 1.7rem;
+      font-size: 1.14rem;
+    }
+    .kort-forklaring {
+      color: #5c2a6b;
+      font-size: 1rem;
+      margin-bottom: .6rem;
+    }
+    .sektiontxt {
+      font-size: 1.04rem;
+      color: #6c227d;
+      margin-bottom: 0.5rem;
+    }
+    .tabell-scroll {
+      overflow-x: auto;
+    }
+    .math-table th, .math-table td { padding: 3px 9px; text-align:left;}
+    .math-table th {
+      border-bottom: 2px solid #cfc3f1;
+      color: #4d3385;
+      font-weight: bold;
+      font-size: 1.06rem;
+    }
+    .math-table td { font-size: 1rem;}
+    .math-table .d1 { color:#51b563; font-weight:bold;}
+    .math-table .d2 { color:#e87290; font-weight:bold;}
+    .math-table .d3 { color:#4b8aee; font-weight:bold;}
+    .math-formel {
+      font-family: 'Roboto Mono', monospace;
+      background: #faf2ff;
+      padding: 0.2em 0.5em;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-bottom:.2rem;
+      display: inline-block;
+    }
+    @media (max-width: 900px) {
+      .procent-card { padding: 1.2rem 0.7rem; min-width:unset; }
+    }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <p class="site-label">Matematikbegrepp</p>
-      <h1>Procent</h1>
-      <p class="lead">
-        Här finns tydliga genomgångar av vanliga procentbegrepp med regler,
-        exempel och övningar.
-      </p>
-      <p class="back-link"><a href="index.html">← Till startsidan</a></p>
-    </div>
-  </header>
-
-  <nav class="topic-menu">
-    <div class="container menu-links">
-      <a href="#vad-ar-procent">Vad betyder procent?</a>
-      <a href="#procent-till-decimal">Procent till decimal</a>
-      <a href="#decimal-till-procent">Decimal till procent</a>
-      <a href="#delen-det-hela">Andelen, delen och det hela</a>
-      <a href="#procent-av-tal">Procent av ett tal</a>
-      <a href="#okning">Ökning</a>
-      <a href="#minskning">Minskning</a>
-      <a href="#rabatt">Rabatt</a>
-    </div>
-  </nav>
-
-  <main class="container content">
-
-    <section id="vad-ar-procent" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Begrepp</span>
-        <h2>Vad betyder procent?</h2>
-      </div>
-      <div class="info-card">
-        <h3>Förklaring</h3>
-        <p>Procent betyder <strong>hundradelar</strong> eller <strong>per hundra</strong>.</p>
-        <p>1 % betyder 1 av 100. 25 % betyder 25 av 100.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>50 % betyder 50 av 100, alltså hälften.</p>
-      </div>
-    </section>
-
-    <section id="procent-till-decimal" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Omvandling</span>
-        <h2>Procent till decimal</h2>
-      </div>
-      <div class="info-card">
-        <h3>Regel</h3>
-        <p>När du omvandlar procent till decimal delar du med 100.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>75 % = 0,75</p>
-        <p>12 % = 0,12</p>
-        <p>8 % = 0,08</p>
-      </div>
-    </section>
-
-    <section id="decimal-till-procent" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Omvandling</span>
-        <h2>Decimal till procent</h2>
-      </div>
-      <div class="info-card">
-        <h3>Regel</h3>
-        <p>När du omvandlar decimal till procent multiplicerar du med 100.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>0,4 = 40 %</p>
-        <p>0,35 = 35 %</p>
-        <p>0,07 = 7 %</p>
-      </div>
-    </section>
-
-    <section id="delen-det-hela" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Samband</span>
-        <h2>Andelen, delen och det hela</h2>
-      </div>
-
-      <div class="info-card">
-        <h3>Begrepp</h3>
-        <p><strong>Andelen</strong> är procenten i decimalform.</p>
-        <p><strong>Delen</strong> är den del du undersöker, till exempel rabatten eller antalet markerade figurer.</p>
-        <p><strong>Det hela</strong> är hela mängden eller ursprungsvärdet.</p>
-      </div>
-
-      <div class="formula-card">
-        <h3>Formler</h3>
-        <p>andelen = delen / det hela</p>
-        <p>delen = andelen × det hela</p>
-        <p>det hela = delen / andelen</p>
-      </div>
-
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>Om 2 av 5 figurer är cirklar, då är delen 2 och det hela 5.</p>
-        <p>Andelen blir då 2 / 5 = 0,4 = 40 %.</p>
-      </div>
-
-      <div class="visual-card">
-        <h3>Illustration</h3>
-        <p class="visual-text">
-          Här är <strong>det hela = 5 figurer</strong>. Av dem är <strong>delen = 2 cirklar</strong>.
-          Då blir <strong>andelen = 2 / 5 = 40 %</strong>.
-        </p>
-
-        <div class="figure-demo">
-          <div class="figure-demo-inner">
-            <div class="shape circle marked"></div>
-            <div class="shape rectangle"></div>
-            <div class="shape rectangle tall"></div>
-            <div class="shape triangle"></div>
-            <div class="shape circle marked"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="practice-card">
-        <h3>Öva</h3>
-        <p>3 av 10 kulor är röda. Hur stor andel är det i procent?</p>
-        <p class="answer">Svar: 30 %</p>
-      </div>
-    </section>
-
-    <section id="procent-av-tal" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Beräkning</span>
-        <h2>Procent av ett tal</h2>
-      </div>
-      <div class="info-card">
-        <h3>Regel</h3>
-        <p>Gör först om procent till decimal och multiplicera sedan med talet.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>20 % av 150</p>
-        <p>20 % = 0,20</p>
-        <p>0,20 × 150 = 30</p>
-        <p><strong>Svar:</strong> 20 % av 150 är 30.</p>
-      </div>
-    </section>
-
-    <section id="okning" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Förändring</span>
-        <h2>Procentuell ökning</h2>
-      </div>
-      <div class="info-card">
-        <h3>Förklaring</h3>
-        <p>Vid ökning lägger du till en viss procent av ursprungsvärdet.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>200 kr ökar med 10 %</p>
-        <p>10 % av 200 är 20</p>
-        <p>200 + 20 = 220</p>
-        <p><strong>Nytt pris:</strong> 220 kr</p>
-      </div>
-    </section>
-
-    <section id="minskning" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Förändring</span>
-        <h2>Procentuell minskning</h2>
-      </div>
-      <div class="info-card">
-        <h3>Förklaring</h3>
-        <p>Vid minskning tar du bort en viss procent av ursprungsvärdet.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>500 kr minskar med 20 %</p>
-        <p>20 % av 500 är 100</p>
-        <p>500 − 100 = 400</p>
-        <p><strong>Nytt pris:</strong> 400 kr</p>
-      </div>
-    </section>
-
-    <section id="rabatt" class="math-section">
-      <div class="section-header">
-        <span class="section-tag">Vardag</span>
-        <h2>Rabatt</h2>
-      </div>
-      <div class="info-card">
-        <h3>Förklaring</h3>
-        <p>Rabatt är en procentuell minskning av ett pris.</p>
-      </div>
-      <div class="example-card">
-        <h3>Exempel</h3>
-        <p>En tröja kostar 400 kr och har 25 % rabatt.</p>
-        <p>25 % av 400 är 100</p>
-        <p>400 − 100 = 300</p>
-        <p><strong>Pris efter rabatt:</strong> 300 kr</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>Matematikbegrepp – Procent</p>
-    </div>
-  </footer>
-</body>
-</html>
+<body class="bg-procent min-h-screen">
+  <!-- Topp-bar -->
+  <header class="w-full py-7 bg-[#d6a2fc]/50">
+    <div class="max-w-5xl mx-auto px-6">
+      <a href="index.html" class="text-[#8c38a8] hover:underline font-bold text-lg">&larr; Tillbaka</a>
+      <h1 class
+
