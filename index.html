@@ -5,51 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matematikbegrepp</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Vill du ha Tailwind? Lägg till: <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <p class="site-label">Matematikbegrepp</p>
       <h1>Matematikbegrepp</h1>
-      <p class="lead">
-        En enkel samling med tydliga genomgångar, exempel och övningar i matematik.
-      </p>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active" data-section="overview">Hem</a></li>
+          <li><a href="#" class="nav-link" data-section="procent">Procent</a></li>
+          <li><a href="#" class="nav-link" data-section="bråk">Bråk</a></li>
+          <li><a href="#" class="nav-link" data-section="tid">Tid</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-  <main class="container content">
-    <section class="home-intro">
-      <h2>Välj område</h2>
-      <p>
-        Här kan du arbeta med olika delar av matematiken. Börja med procent.
-      </p>
+  <!-- Startsida med temakort -->
+  <main class="container">
+    <section id="overview-section" class="overview active">
+      <h2>Välj ett matematikområde</h2>
+      <div class="theme-cards">
+        <button class="theme-card" data-section="procent">
+          <span class="theme-icon">%</span>
+          <span class="theme-title">Procent</span>
+        </button>
+        <button class="theme-card" data-section="bråk">
+          <span class="theme-icon">¼</span>
+          <span class="theme-title">Bråk</span>
+        </button>
+        <button class="theme-card" data-section="tid">
+          <span class="theme-icon">⏰</span>
+          <span class="theme-title">Tid</span>
+        </button>
+        <!-- Lägg till fler teman vid behov -->
+      </div>
     </section>
-    <section class="home-grid">
-      <a class="subject-card subject-card-active" href="procent.html">
-        <span class="section-tag">Öppet nu</span>
-        <h3>Procent</h3>
-        <p>Begrepp, andelen-delen-det hela, ökning, minskning och rabatt.</p>
-      </a>
-      <div class="subject-card subject-card-soon">
-        <span class="section-tag">Kommer snart</span>
-        <h3>Bråk</h3>
-        <p>Förlängning, förkortning, addition, subtraktion och multiplikation.</p>
+    <!-- Procent-kort -->
+    <section id="procent-section" class="cards-section">
+      <h2>Procentbegrepp</h2>
+      <div id="procent-card-grid" class="card-grid">
+        <!-- Korten genereras av JS -->
       </div>
-      <div class="subject-card subject-card-soon">
-        <span class="section-tag">Kommer snart</span>
-        <h3>Decimaltal</h3>
-        <p>Platsvärde, jämförelse, omvandling och räkning med decimaltal.</p>
+    </section>
+    <!-- Bråk-kort -->
+    <section id="bråk-section" class="cards-section">
+      <h2>Bråkbegrepp</h2>
+      <div id="bråk-card-grid" class="card-grid">
+        <!-- Korten genereras av JS -->
       </div>
-      <div class="subject-card subject-card-soon">
-        <span class="section-tag">Kommer snart</span>
-        <h3>Geometri</h3>
-        <p>Former, vinklar, omkrets, area och skala.</p>
+    </section>
+    <!-- Tid-kort -->
+    <section id="tid-section" class="cards-section">
+      <h2>Tidsbegrepp</h2>
+      <div id="tid-card-grid" class="card-grid">
+        <!-- Korten genereras av JS -->
       </div>
     </section>
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>Matematikbegrepp</p>
+      <button id="toggleDarkMode" class="toolbar-button">Dark Mode</button>
+      <p>&copy; 2026 Matematikbegrepp</p>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
