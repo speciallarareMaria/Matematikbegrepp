@@ -4,98 +4,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matematikbegrepp</title>
-  <!-- Tailwind CDN för enkel styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Nunito', 'Roboto', Arial, sans-serif !important; }
-    /* Anpassade färger till din stil */
     .bg-mb-main { background: linear-gradient(135deg, #e7b3fd 0%, #fbe3e8 100%); }
-    .card-mb { background: #fff7fb; border-color: #e9b6fa; }
-    .card-mb h2 { color: #ac53c2; }
     .mb-header-bar { background: #ac53c2; }
-    .mb-header-title { color: #fff; }
-    .mb-navbar { background: none; }
-    .mb-navbar a { color: #fcedfa; }
-    .mb-navbar a.active, .mb-navbar a:hover { color: #fbe3e8; border-bottom: 2.5px solid #fbe3e8;}
-    .section-title { color: #ac53c2; }
+    .nav-link.active, .nav-link:hover { color: #fbe3e8 !important; border-bottom: 2.5px solid #fbe3e8; }
   </style>
 </head>
 <body class="bg-mb-main min-h-screen">
   <!-- Toppbar -->
   <header class="mb-header-bar py-7 px-5 shadow">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
-      <div class="text-3xl md:text-4xl mb-header-title font-extrabold tracking-tight leading-tight">
+      <div class="text-3xl md:text-4xl text-white font-extrabold tracking-tight leading-tight">
         Matematikbegrepp
       </div>
-      <nav class="mb-navbar">
+      <nav>
         <ul class="flex gap-10 text-lg font-semibold">
-          <li><a href="#" class="active pb-1">Hem</a></li>
-          <li><a href="#" class="pb-1">Mattekort</a></li>
-          <li><a href="#" class="pb-1">Taluppfattning</a></li>
-          <li><a href="#" class="pb-1">Kontakt</a></li>
+          <li><a href="#" class="nav-link active pb-1" onclick="showSection('home', event)">Hem</a></li>
+          <li><a href="#" class="nav-link pb-1" onclick="showSection('begrepp', event)">Matematikbegrepp</a></li>
+          <li><a href="#" class="nav-link pb-1" onclick="showSection('matematik', event)">Matematik</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <!-- Huvudområde -->
+  <!-- Sidinnehåll -->
   <main class="max-w-6xl mx-auto px-4 py-10">
-    <!-- Du kan byta ut eller lägga till sektioner här! -->
-    <section class="mb-12">
-      <h1 class="text-2xl sm:text-3xl font-bold mb-4 section-title">Välkommen!</h1>
+    <!-- HEM -->
+    <section id="home-section">
+      <h1 class="text-2xl sm:text-3xl font-bold mb-4 text-[#ac53c2]">Välkommen till <span class="font-extrabold">Matematikbegrepp!</span></h1>
       <p class="max-w-2xl text-lg text-gray-800">
-        På den här sidan kan du och dina elever lära er och öva på matematiska begrepp. Här kommer presentationer, begreppskort, och smarta förklaringar samla alla viktiga områden, t.ex. procent, bråk, tid och <span class="font-bold section-title">taluppfattning</span>.
+        Det här är <b>min sida</b> där elever och lärare hittar kort, övningar och tydliga genomgångar av de viktigaste begreppen inom matematiken.
+        Använd menyn för att byta område! Byggd med färg, glädje och smart design.
       </p>
     </section>
-    <!-- Exempelkort: Taluppfattning -->
-    <section>
-      <h2 class="text-xl sm:text-2xl font-bold mb-6 section-title">Taluppfattning</h2>
+
+    <!-- MATEMATIKBEGREPP -->
+    <section id="begrepp-section" class="hidden">
+      <h2 class="text-xl sm:text-2xl font-bold mb-6 text-[#ac53c2]">Matematikbegrepp – expandera korten du vill öva!</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Kort 1: Siffra & tal -->
-        <div class="rounded-2xl border-2 card-mb shadow p-7 flex flex-col">
-          <h2 class="text-lg font-bold mb-2">Siffra &amp; tal</h2>
-          <div class="mb-2">
-            <span class="inline-block bg-violet-200 text-violet-800 px-2 py-1 rounded-lg text-sm">Siffra</span>
-            är någon av symbolerna <strong>0 1 2 3 4 5 6 7 8 9</strong>.
-          </div>
-          <div>
-            <span class="inline-block bg-pink-200 text-pink-800 px-2 py-1 rounded-lg text-sm">Tal</span>
-            är gjort av en eller flera siffror, t.ex. 47 eller 1209.
-          </div>
-          <div class="mt-4 text-sm text-pink-700 border-t pt-3">
-            En siffra är som matematikens “bokstav”, ett tal är som ett “ord”.
-          </div>
-        </div>
-        <!-- Kort 2: Ental, tiotal, hundratal -->
-        <div class="rounded-2xl border-2 card-mb shadow p-7 flex flex-col">
-          <h2 class="text-lg font-bold mb-2">Ental, tiotal &amp; hundratal</h2>
-          <div>
-            Titta på talet <b>347</b>:
-            <ul class="list-disc ml-6 my-2 text-base">
-              <li>7 är ental</li>
-              <li>4 är tiotal</li>
-              <li>3 är hundratal</li>
-            </ul>
-          </div>
-          <div class="mt-4 text-sm text-pink-700 border-t pt-3">
-            Tips: Skriv upp olika tal och ringa in varje siffra för att visa platsvärden!
+        <!-- Expandera/Flytande kort 1 -->
+        <div class="rounded-2xl border-2 border-[#e9b6fa] bg-white shadow relative">
+          <button onclick="toggleCard(this)" class="w-full flex items-center justify-between px-7 py-5 focus:outline-none">
+            <span class="text-lg font-bold text-[#ac53c2] text-left">Vad är en siffra och ett tal?</span>
+            <span class="ml-2 text-pink-700 text-2xl">&#x25BC;</span>
+          </button>
+          <div class="px-7 pb-6 hidden card-details">
+            <p class="mt-2"><span class="bg-violet-200 text-violet-800 px-2 py-1 rounded-lg text-sm font-semibold">Siffra</span> är någon av symbolerna 0-9.<br>
+            <span class="bg-pink-200 text-pink-800 px-2 py-1 rounded-lg text-sm font-semibold">Tal</span> är gjort av en eller flera siffror, t.ex. 43 eller 280.</p>
+            <div class="mt-2 text-pink-700 italic text-sm">
+              En siffra är som en bokstav, tal är som ord!
+            </div>
           </div>
         </div>
-        <!-- Kort 3: Fler begrepp (lägg till själv!) -->
-        <div class="rounded-2xl border-2 card-mb shadow p-7 flex flex-col">
-          <h2 class="text-lg font-bold mb-2">Tal på olika former</h2>
-          <div>
-            <span class="font-bold">Exempel:</span> <br>
-            <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded-lg text-sm my-1">Skrivet</span> "hundratjugo" <br>
-            <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded-lg text-sm my-1">Siffror</span> <strong>120</strong>
-          </div>
-          <div class="mt-4 text-sm text-pink-700 border-t pt-3">
-            Träna på att växla mellan text och siffror!
+        <!-- Expandera/Flytande kort 2 -->
+        <div class="rounded-2xl border-2 border-[#e9b6fa] bg-white shadow relative">
+          <button onclick="toggleCard(this)" class="w-full flex items-center justify-between px-7 py-5 focus:outline-none">
+            <span class="text-lg font-bold text-[#ac53c2] text-left">Ental, tiotal &amp; hundratal</span>
+            <span class="ml-2 text-pink-700 text-2xl">&#x25BC;</span>
+          </button>
+          <div class="px-7 pb-6 hidden card-details">
+            <p class="mt-2">
+              I <b>743</b> är <b>3</b> ental, <b>4</b> tiotal, <b>7</b> hundratal.<br>
+              <span class="bg-blue-100 text-blue-800 px-2 rounded text-sm">Ental</span> är sista siffran, <span class="bg-yellow-100 text-yellow-800 px-2 rounded text-sm">tiotal</span> den i mitten, <span class="bg-green-100 text-green-800 px-2 rounded text-sm">hundratal</span> längst till vänster.
+            </p>
+            <div class="mt-2 text-pink-700 italic text-sm">Tips: Skriv upp tal och ringa in varje siffra!</div>
           </div>
         </div>
-        <!-- Lägg till fler kort här! -->
+        <!-- Expandera/Flytande kort 3: exempel så du kan lägga till fler -->
+        <div class="rounded-2xl border-2 border-[#e9b6fa] bg-white shadow relative">
+          <button onclick="toggleCard(this)" class="w-full flex items-center justify-between px-7 py-5 focus:outline-none">
+            <span class="text-lg font-bold text-[#ac53c2] text-left">Tal på olika former</span>
+            <span class="ml-2 text-pink-700 text-2xl">&#x25BC;</span>
+          </button>
+          <div class="px-7 pb-6 hidden card-details">
+            <div>
+              <span class="font-extrabold">Skrivet:</span> “hundratjugo”<br>
+              <span class="font-extrabold">Siffror:</span> 120
+            </div>
+            <div class="mt-2 text-pink-700 italic text-sm">
+              Växla mellan text och siffror!
+            </div>
+          </div>
+        </div>
+        <!-- Lägg till fler kort på samma sätt! -->
       </div>
     </section>
+
+    <!-- MATEMATIK, exempelrubrik -->
+    <section id="matematik-section" class="hidden">
+      <h2 class="text-xl sm:text-2xl font-bold mb-6 text-[#ac53c2]">Matematik – generella resurser</h2>
+      <ul class="pl-4 list-disc text-lg text-gray-800 mb-2">
+        <li>Teorigennomgångar</li>
+        <li>Tips till lärare och elever</li>
+        <li>Kanske quiz, länktips eller räknespel?</li>
+      </ul>
+      <div class="text-md text-pink-800 mt-4">Kom gärna med önskemål!</div>
+    </section>
   </main>
+
+  <!-- JS för navigation och expanderbara kort -->
+  <script>
+    // Navigation visa/dölj sektioner
+    function showSection(section, e) {
+      if (e) e.preventDefault();
+      document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(section + '-section').classList.remove('hidden');
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(l => {
+        if (l.textContent.trim().toLowerCase().includes(section)) l.classList.add('active');
+      });
+      window.scrollTo(0,0);
+    }
+    // Expandera/fäll ihop kort
+    function toggleCard(btn) {
+      const details = btn.parentElement.querySelector('.card-details');
+      if (details.classList.contains('hidden')) {
+        details.classList.remove('hidden');
+        btn.querySelector('span:last-child').textContent = '▲';
+      } else {
+        details.classList.add('hidden');
+        btn.querySelector('span:last-child').textContent = '▼';
+      }
+    }
+    // Start: visa hemsektionen
+    showSection('home')
+  </script>
 </body>
 </html>
