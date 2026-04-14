@@ -8,6 +8,7 @@
     body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%); }
     .kort:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.024);}
     .kort { transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;}
+    .modal-bg { background: rgba(40,0,60,0.32); }
   </style>
 </head>
 <body class="min-h-screen">
@@ -20,57 +21,92 @@
   </header>
   <main class="max-w-5xl mx-auto px-4">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Exempel på kort -->
-      <a href="procent_hundradel.pdf" class="kort rounded-2xl bg-white border border-purple-200 p-7 flex flex-col items-center shadow group hover:bg-purple-50 text-center" target="_blank">
+
+      <!-- KORT 1 -->
+      <div class="kort rounded-2xl bg-white border border-purple-200 p-7 flex flex-col items-center shadow group hover:bg-purple-50 text-center"
+        onclick="openPDF('procent_hundradel.pdf', 'Procent = hundradel')">
         <div class="text-3xl text-purple-400 mb-2">%</div>
         <div class="font-bold text-lg text-purple-800 mb-1">Procent = hundradel</div>
         <div class="text-sm text-gray-700 mb-2">Förstå hundradelar<br>Exempel och bilder</div>
         <span class="mt-auto text-xs font-semibold text-purple-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <a href="brak_decimalform_procent.pdf" class="kort rounded-2xl bg-white border border-pink-200 p-7 flex flex-col items-center shadow group hover:bg-pink-50 text-center" target="_blank">
+      </div>
+
+      <!-- KORT 2 -->
+      <div class="kort rounded-2xl bg-white border border-pink-200 p-7 flex flex-col items-center shadow group hover:bg-pink-50 text-center"
+        onclick="openPDF('brak_decimalform_procent.pdf', 'Bråk, decimalform & procent')">
         <div class="text-3xl text-pink-400 mb-2">&#188;</div>
         <div class="font-bold text-lg text-pink-800 mb-1">Bråk, decimalform & procent</div>
         <div class="text-sm text-gray-700 mb-2">Tabell och exempel, rita fjärdedelar!</div>
         <span class="mt-auto text-xs font-semibold text-pink-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <a href="andelen_delen_dethela.pdf" <div onclick="togglePDF()" 
-  class="kort rounded-2xl bg-white border border-blue-200 p-7 flex flex-col items-center shadow group hover:bg-blue-50 text-center">
+      </div>
 
-  <div class="text-3xl text-blue-400 mb-2">&equiv;</div>
-  <div class="font-bold text-lg text-blue-800 mb-1">Andelen, delen och det hela</div>
-  <div class="text-sm text-gray-700 mb-2">Tydliga formler och förklaringar</div>
-
-  <span class="mt-auto text-xs font-semibold text-blue-700 group-hover:underline">
-    Visa
-  </span>
-</div>class="kort rounded-2xl bg-white border border-blue-200 p-7 flex flex-col items-center shadow group hover:bg-blue-50 text-center" target="_blank">
+      <!-- KORT 3 -->
+      <div class="kort rounded-2xl bg-white border border-blue-200 p-7 flex flex-col items-center shadow group hover:bg-blue-50 text-center"
+        onclick="openPDF('andelen_delen_dethela.pdf', 'Andelen, delen och det hela')">
         <div class="text-3xl text-blue-400 mb-2">&equiv;</div>
         <div class="font-bold text-lg text-blue-800 mb-1">Andelen, delen och det hela</div>
         <div class="text-sm text-gray-700 mb-2">Tydliga formler och förklaringar</div>
         <span class="mt-auto text-xs font-semibold text-blue-700 group-hover:underline">Visa PDF</span>
-      </a> <div id="pdfContainer" class="hidden mt-8">
-  <iframe src="andelen_delen_dethela.pdf"
-          class="w-full h-[800px] rounded-xl border">
-  </iframe>
-</div>
-      <a href="procent_problemlosning.pdf" class="kort rounded-2xl bg-white border border-lime-200 p-7 flex flex-col items-center shadow group hover:bg-lime-50 text-center" target="_blank">
+      </div>
+
+      <!-- KORT 4 -->
+      <div class="kort rounded-2xl bg-white border border-lime-200 p-7 flex flex-col items-center shadow group hover:bg-lime-50 text-center"
+        onclick="openPDF('procent_problemlosning.pdf', 'Problemlösning med procent')">
         <div class="text-3xl text-lime-400 mb-2">&#9633;</div>
         <div class="font-bold text-lg text-lime-800 mb-1">Problemlösning med procent</div>
         <div class="text-sm text-gray-700 mb-2">Steg-för-steg och minnesregler</div>
         <span class="mt-auto text-xs font-semibold text-lime-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <a href="forandringsexempel.pdf" class="kort rounded-2xl bg-white border border-fuchsia-200 p-7 flex flex-col items-center shadow group hover:bg-fuchsia-50 text-center" target="_blank">
+      </div>
+
+      <!-- KORT 5 -->
+      <div class="kort rounded-2xl bg-white border border-fuchsia-200 p-7 flex flex-col items-center shadow group hover:bg-fuchsia-50 text-center"
+        onclick="openPDF('forandringsexempel.pdf', 'Förändringsfaktor')">
         <div class="text-3xl text-fuchsia-400 mb-2">Δ</div>
         <div class="font-bold text-lg text-fuchsia-800 mb-1">Förändringsfaktor</div>
         <div class="text-sm text-gray-700 mb-2">Exempel vid både ökning/minskning</div>
         <span class="mt-auto text-xs font-semibold text-fuchsia-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <!-- Lägg till fler kort/dokument här -->
+      </div>
+
     </div>
   </main>
- function togglePDF() {
-    const el = document.getElementById("pdfContainer");
-    el.classList.toggle("hidden");
-  }
-</script> </body>
+
+  <!-- PDF MODAL -->
+  <div id="pdfModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-bg">
+    <div class="flex min-h-screen items-center justify-center">
+      <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-3xl mx-auto p-4">
+        <button onclick="closePDF()" aria-label="Stäng" class="absolute top-2 right-2 p-2 rounded-full text-xl text-gray-500 hover:bg-purple-100">
+          &times;
+        </button>
+        <h2 id="pdfTitle" class="text-lg font-bold mb-2 text-purple-800"></h2>
+        <iframe id="pdfFrame" src="" class="w-full h-[68vh] rounded-lg border"></iframe>
+        <div class="text-right mt-2">
+          <a id="pdfDownload" href="" download class="text-xs text-purple-600 hover:underline font-bold">Ladda ner PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPDF(pdfPath, title) {
+      document.getElementById('pdfFrame').src = pdfPath;
+      document.getElementById('pdfDownload').href = pdfPath;
+      document.getElementById('pdfTitle').textContent = title;
+      document.getElementById('pdfModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePDF() {
+      document.getElementById('pdfModal').classList.add('hidden');
+      document.getElementById('pdfFrame').src = '';
+      document.body.style.overflow = '';
+    }
+    // Stäng modal med Escape
+    document.addEventListener('keydown', function(e) {
+      if(e.key === "Escape") closePDF();
+    });
+    // Stäng modal när man klickar utanför boxen
+    document.getElementById('pdfModal').addEventListener('click', function(e) {
+      if (e.target === this) closePDF();
+    });
+  </script>
+</body>
 </html>
