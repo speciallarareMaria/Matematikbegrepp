@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Algebra — Matematikbegrepp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: linear-gradient(160deg, #e0e7ff, #f3e8ff 90%);}
+    .accordion-header { cursor: pointer; transition: background 0.15s;}
+    .accordion-header:hover { background: #ddd6fe;}
+    .accordion-content { display: none; }
+    .accordion-content.show { display: block;}
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="py-8">
+    <div class="max-w-4xl mx-auto">
+      <a href="index.html" class="text-indigo-600 text-lg font-bold hover:underline">&larr; Tillbaka till startsidan</a>
+      <h1 class="text-3xl font-extrabold text-center text-indigo-800 mt-2 mb-8">Algebra — Begrepp och exempel</h1>
+      <p class="text-center text-gray-700 mb-6">Klicka på ett begrepp för att visa förklaring och exempeluppgifter.<br><span class="text-sm text-indigo-700 font-semibold">Skapad av Maria (speciallärare)</span></p>
+    </div>
+  </header>
+  <main class="max-w-2xl mx-auto px-4">
+    <div id="accordion">
+
+      <!-- Begrepp 1 -->
+      <div class="mb-4 bg-white rounded-xl border border-indigo-200 shadow">
+        <div class="accordion-header p-5 text-xl flex items-center justify-between font-semibold text-indigo-800" onclick="toggleAccordion(0)">
+          Variabel & uttryck
+          <span class="text-2xl">&#9654;</span>
+        </div>
+        <div class="accordion-content px-5 pb-4 pt-1 text-gray-800" id="content0">
+          <p class="mb-2">
+            <b>Variabel:</b> Ett bokstavstecken som ersätter ett tal, t.ex. <b>x</b>.<br>
+            <b>Uttryck:</b> En "matematisk mening" utan lika med, t.ex. <b>2x + 5</b>.
+          </p>
+          <ul class="list-disc list-inside mb-3">
+            <li>Exempeluppgift: Vad får uttrycket <b>2x + 5</b> för värde om x = 3?</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Begrepp 2 -->
+      <div class="mb-4 bg-white rounded-xl border border-violet-200 shadow">
+        <div class="accordion-header p-5 text-xl flex items-center justify-between font-semibold text-violet-800" onclick="toggleAccordion(1)">
+          Ekvationer
+          <span class="text-2xl">&#9654;</span>
+        </div>
+        <div class="accordion-content px-5 pb-4 pt-1 text-gray-800" id="content1">
+          <p class="mb-2">
+            <b>Ekvation:</b> Ett likhetstecken och en okänd, t.ex. <b>x + 4 = 10</b>.<br>
+            Man ska "ta reda på" värdet på x så att likheten stämmer.
+          </p>
+          <ul class="list-disc list-inside mb-3">
+            <li>Exempeluppgift: Lös ekvationen x + 4 = 10.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Begrepp 3 -->
+      <div class="mb-4 bg-white rounded-xl border border-purple-200 shadow">
+        <div class="accordion-header p-5 text-xl flex items-center justify-between font-semibold text-purple-800" onclick="toggleAccordion(2)">
+          Mönster & fortsättningar
+          <span class="text-2xl">&#9654;</span>
+        </div>
+        <div class="accordion-content px-5 pb-4 pt-1 text-gray-800" id="content2">
+          <p class="mb-2">
+            Att upptäcka en regel och fortsätta ett mönster – med siffror, bilder eller figurer.
+          </p>
+          <ul class="list-disc list-inside mb-3">
+            <li>Exempeluppgift: Talföljden är 2, 4, 6, ... Vad blir de två nästa talen?</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script>
+    function toggleAccordion(idx) {
+      const all = document.querySelectorAll('.accordion-content');
+      const allHeaders = document.querySelectorAll('.accordion-header span');
+      all.forEach((content, i) => {
+        if (i === idx) {
+          content.classList.toggle('show');
+          allHeaders[i].innerHTML = content.classList.contains('show') ? "&#9660;" : "&#9654;";
+        } else {
+          content.classList.remove('show');
+          allHeaders[i].innerHTML = "&#9654;";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
