@@ -2,56 +2,29 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Procent – Matematikbegrepp</title>
+  <title>Matematikbegrepp — Startsida</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%); }
-    .kort:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.024);}
-    .kort { transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;}
+    body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%);}
+    .knapp { transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;}
+    .knapp:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.024);}
   </style>
 </head>
 <body class="min-h-screen">
   <header class="py-8">
-    <div class="max-w-4xl mx-auto">
-      <a href="index.html" class="text-purple-600 text-lg font-bold hover:underline">&larr; Tillbaka</a>
-      <h1 class="text-3xl font-extrabold text-center text-purple-900 mt-1 mb-6">Procent – Begreppskort</h1>
-      <p class="text-center text-lg text-gray-700 mb-8">Klicka på ett kort för att öppna eller ladda ner PDF:en/dokumentet!</p>
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl font-extrabold text-purple-800 mb-2">Matematikbegrepp</h1>
+      <p class="text-lg text-gray-700 mb-4">Utforska mattebegrepp – klicka på ett område!</p>
+      <p class="text-sm text-purple-700 font-semibold">Skapad av Maria (speciallärare)</p>
     </div>
   </header>
-  <main class="max-w-5xl mx-auto px-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Exempel på kort -->
-      <a href="procent_hundradel.pdf" class="kort rounded-2xl bg-white border border-purple-200 p-7 flex flex-col items-center shadow group hover:bg-purple-50 text-center" target="_blank">
-        <div class="text-3xl text-purple-400 mb-2">%</div>
-        <div class="font-bold text-lg text-purple-800 mb-1">Procent = hundradel</div>
-        <div class="text-sm text-gray-700 mb-2">Förstå hundradelar<br>Exempel och bilder</div>
-        <span class="mt-auto text-xs font-semibold text-purple-700 group-hover:underline">Visa PDF</span>
+  <main class="max-w-2xl mx-auto px-4">
+    <div class="grid gap-6">
+      <a href="procent.html" class="knapp rounded-2xl bg-white border border-purple-200 p-6 flex items-center shadow group hover:bg-purple-50 text-center justify-center font-semibold text-xl text-purple-700">
+        Procent
       </a>
-      <a href="brak_decimalform_procent.pdf" class="kort rounded-2xl bg-white border border-pink-200 p-7 flex flex-col items-center shadow group hover:bg-pink-50 text-center" target="_blank">
-        <div class="text-3xl text-pink-400 mb-2">&#188;</div>
-        <div class="font-bold text-lg text-pink-800 mb-1">Bråk, decimalform & procent</div>
-        <div class="text-sm text-gray-700 mb-2">Tabell och exempel, rita fjärdedelar!</div>
-        <span class="mt-auto text-xs font-semibold text-pink-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <a href="andelen_delen_dethela.pdf" class="kort rounded-2xl bg-white border border-blue-200 p-7 flex flex-col items-center shadow group hover:bg-blue-50 text-center" target="_blank">
-        <div class="text-3xl text-blue-400 mb-2">&equiv;</div>
-        <div class="font-bold text-lg text-blue-800 mb-1">Andelen, delen och det hela</div>
-        <div class="text-sm text-gray-700 mb-2">Tydliga formler och förklaringar</div>
-        <span class="mt-auto text-xs font-semibold text-blue-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <a href="procent_problemlosning.pdf" class="kort rounded-2xl bg-white border border-lime-200 p-7 flex flex-col items-center shadow group hover:bg-lime-50 text-center" target="_blank">
-        <div class="text-3xl text-lime-400 mb-2">&#9633;</div>
-        <div class="font-bold text-lg text-lime-800 mb-1">Problemlösning med procent</div>
-        <div class="text-sm text-gray-700 mb-2">Steg-för-steg och minnesregler</div>
-        <span class="mt-auto text-xs font-semibold text-lime-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <a href="forandringsexempel.pdf" class="kort rounded-2xl bg-white border border-fuchsia-200 p-7 flex flex-col items-center shadow group hover:bg-fuchsia-50 text-center" target="_blank">
-        <div class="text-3xl text-fuchsia-400 mb-2">Δ</div>
-        <div class="font-bold text-lg text-fuchsia-800 mb-1">Förändringsfaktor</div>
-        <div class="text-sm text-gray-700 mb-2">Exempel vid både ökning/minskning</div>
-        <span class="mt-auto text-xs font-semibold text-fuchsia-700 group-hover:underline">Visa PDF</span>
-      </a>
-      <!-- Lägg till fler kort/dokument här -->
+      <!-- Lägg till fler begrepp här, t.ex. Bråk, Procent, Multiplikation -->
+      <!-- <a href="brak.html" ...>Bråk</a> -->
     </div>
   </main>
 </body>
