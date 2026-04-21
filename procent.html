@@ -2,111 +2,96 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Procent – Matematikbegrepp</title>
+  <title>Procent — Matematikbegrepp</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%); }
-    .kort:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.024);}
-    .kort { transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;}
-    .modal-bg { background: rgba(40,0,60,0.32); }
+    body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%);}
+    .accordion-header { cursor: pointer; transition: background 0.15s;}
+    .accordion-header:hover { background: #f3e8ff;}
+    .accordion-content { display: none; }
+    .accordion-content.show { display: block;}
   </style>
 </head>
 <body class="min-h-screen">
   <header class="py-8">
     <div class="max-w-4xl mx-auto">
-      <a href="index.html" class="text-purple-600 text-lg font-bold hover:underline">&larr; Tillbaka</a>
-      <h1 class="text-3xl font-extrabold text-center text-purple-900 mt-1 mb-6">Procent – Begreppskort</h1>
-      <p class="text-center text-lg text-gray-700 mb-8">Klicka på ett kort för att öppna eller ladda ner PDF:en/dokumentet!</p>
+      <a href="index.html" class="text-purple-600 text-lg font-bold hover:underline">&larr; Tillbaka till startsidan</a>
+      <h1 class="text-3xl font-extrabold text-center text-purple-900 mt-2 mb-8">Procent — Begrepp och exempel</h1>
+      <p class="text-center text-gray-700 mb-6">Klicka på ett begrepp för att visa förklaringar och exempeluppgifter. <br><span class="text-sm text-purple-700 font-semibold">Skapad av Maria (speciallärare)</span></p>
     </div>
   </header>
-  <main class="max-w-5xl mx-auto px-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <main class="max-w-2xl mx-auto px-4">
+    <div id="accordion">
 
-      <!-- KORT 1 -->
-      <div class="kort rounded-2xl bg-white border border-purple-200 p-7 flex flex-col items-center shadow group hover:bg-purple-50 text-center"
-        onclick="openPDF('procent_hundradel.pdf', 'Procent = hundradel')">
-        <div class="text-3xl text-purple-400 mb-2">%</div>
-        <div class="font-bold text-lg text-purple-800 mb-1">Procent = hundradel</div>
-        <div class="text-sm text-gray-700 mb-2">Förstå hundradelar<br>Exempel och bilder</div>
-        <span class="mt-auto text-xs font-semibold text-purple-700 group-hover:underline">Visa PDF</span>
+      <!-- Begrepp 1 -->
+      <div class="mb-4 bg-white rounded-xl border border-purple-200 shadow">
+        <div class="accordion-header p-5 text-xl flex items-center justify-between font-semibold text-purple-800" onclick="toggleAccordion(0)">
+          Procent = hundradel
+          <span class="text-2xl">&#9654;</span>
+        </div>
+        <div class="accordion-content px-5 pb-4 pt-1 text-gray-800" id="content0">
+          <p class="mb-2">Procent betyder <b>hundradel</b>. En procent = 1 av 100 lika delar (1/100).</p>
+          <ul class="list-disc list-inside mb-3">
+            <li>Exempel: <b>25%</b> betyder <b>25 av 100</b> eller <b>1/4</b>.</li>
+            <li>Exempeluppgift: Vad är 15% av 200?</li>
+          </ul>
+          <a href="procent_hundradel.pdf" target="_blank" class="inline-block mt-2 px-4 py-2 text-xs bg-purple-100 text-purple-800 rounded hover:bg-purple-200">Visa PDF</a>
+        </div>
       </div>
 
-      <!-- KORT 2 -->
-      <div class="kort rounded-2xl bg-white border border-pink-200 p-7 flex flex-col items-center shadow group hover:bg-pink-50 text-center"
-        onclick="openPDF('brak_decimalform_procent.pdf', 'Bråk, decimalform & procent')">
-        <div class="text-3xl text-pink-400 mb-2">&#188;</div>
-        <div class="font-bold text-lg text-pink-800 mb-1">Bråk, decimalform & procent</div>
-        <div class="text-sm text-gray-700 mb-2">Tabell och exempel, rita fjärdedelar!</div>
-        <span class="mt-auto text-xs font-semibold text-pink-700 group-hover:underline">Visa PDF</span>
+      <!-- Begrepp 2 -->
+      <div class="mb-4 bg-white rounded-xl border border-blue-200 shadow">
+        <div class="accordion-header p-5 text-xl flex items-center justify-between font-semibold text-blue-800" onclick="toggleAccordion(1)">
+          Bråk, decimalform & procent
+          <span class="text-2xl">&#9654;</span>
+        </div>
+        <div class="accordion-content px-5 pb-4 pt-1 text-gray-800" id="content1">
+          <p class="mb-2">Sambandet mellan bråk, decimalform och procent:</p>
+          <ul class="list-disc list-inside mb-3">
+            <li><b>1/2 = 0,5 = 50%</b></li>
+            <li><b>1/4 = 0,25 = 25%</b></li>
+            <li>Exempeluppgift: Skriv 0,75 som bråk och procent.</li>
+          </ul>
+          <a href="brak_decimalform_procent.pdf" target="_blank" class="inline-block mt-2 px-4 py-2 text-xs bg-blue-100 text-blue-800 rounded hover:bg-blue-200">Visa PDF</a>
+        </div>
       </div>
 
-      <!-- KORT 3 -->
-      <div class="kort rounded-2xl bg-white border border-blue-200 p-7 flex flex-col items-center shadow group hover:bg-blue-50 text-center"
-        onclick="openPDF('andelen_delen_dethela.pdf', 'Andelen, delen och det hela')">
-        <div class="text-3xl text-blue-400 mb-2">&equiv;</div>
-        <div class="font-bold text-lg text-blue-800 mb-1">Andelen, delen och det hela</div>
-        <div class="text-sm text-gray-700 mb-2">Tydliga formler och förklaringar</div>
-        <span class="mt-auto text-xs font-semibold text-blue-700 group-hover:underline">Visa PDF</span>
+      <!-- Begrepp 3 -->
+      <div class="mb-4 bg-white rounded-xl border border-lime-200 shadow">
+        <div class="accordion-header p-5 text-xl flex items-center justify-between font-semibold text-lime-800" onclick="toggleAccordion(2)">
+          Problemlösning med procent
+          <span class="text-2xl">&#9654;</span>
+        </div>
+        <div class="accordion-content px-5 pb-4 pt-1 text-gray-800" id="content2">
+          <p class="mb-2">Här får du steg-för-steg-exempel på att räkna ut andelen eller delen:</p>
+          <ul class="list-disc list-inside mb-3">
+            <li>Exempeluppgift: Hur mycket är 30% av 400?</li>
+            <li>Exempeluppgift: 120 kr är 80%. Vad är 100%?</li>
+          </ul>
+          <a href="procent_problemlosning.pdf" target="_blank" class="inline-block mt-2 px-4 py-2 text-xs bg-lime-100 text-lime-800 rounded hover:bg-lime-200">Visa PDF</a>
+        </div>
       </div>
 
-      <!-- KORT 4 -->
-      <div class="kort rounded-2xl bg-white border border-lime-200 p-7 flex flex-col items-center shadow group hover:bg-lime-50 text-center"
-        onclick="openPDF('procent_problemlosning.pdf', 'Problemlösning med procent')">
-        <div class="text-3xl text-lime-400 mb-2">&#9633;</div>
-        <div class="font-bold text-lg text-lime-800 mb-1">Problemlösning med procent</div>
-        <div class="text-sm text-gray-700 mb-2">Steg-för-steg och minnesregler</div>
-        <span class="mt-auto text-xs font-semibold text-lime-700 group-hover:underline">Visa PDF</span>
-      </div>
-
-      <!-- KORT 5 -->
-      <div class="kort rounded-2xl bg-white border border-fuchsia-200 p-7 flex flex-col items-center shadow group hover:bg-fuchsia-50 text-center"
-        onclick="openPDF('forandringsexempel.pdf', 'Förändringsfaktor')">
-        <div class="text-3xl text-fuchsia-400 mb-2">Δ</div>
-        <div class="font-bold text-lg text-fuchsia-800 mb-1">Förändringsfaktor</div>
-        <div class="text-sm text-gray-700 mb-2">Exempel vid både ökning/minskning</div>
-        <span class="mt-auto text-xs font-semibold text-fuchsia-700 group-hover:underline">Visa PDF</span>
-      </div>
-
+      <!-- Lägg till fler begrepp här -->
     </div>
   </main>
 
-  <!-- PDF MODAL -->
-  <div id="pdfModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-bg">
-    <div class="flex min-h-screen items-center justify-center">
-      <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-3xl mx-auto p-4">
-        <button onclick="closePDF()" aria-label="Stäng" class="absolute top-2 right-2 p-2 rounded-full text-xl text-gray-500 hover:bg-purple-100">
-          &times;
-        </button>
-        <h2 id="pdfTitle" class="text-lg font-bold mb-2 text-purple-800"></h2>
-        <iframe id="pdfFrame" src="" class="w-full h-[68vh] rounded-lg border"></iframe>
-        <div class="text-right mt-2">
-          <a id="pdfDownload" href="" download class="text-xs text-purple-600 hover:underline font-bold">Ladda ner PDF</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    function openPDF(pdfPath, title) {
-      document.getElementById('pdfFrame').src = pdfPath;
-      document.getElementById('pdfDownload').href = pdfPath;
-      document.getElementById('pdfTitle').textContent = title;
-      document.getElementById('pdfModal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+    // Enkel accordion-funktion: visar bara ett öppet åt gången
+    function toggleAccordion(idx) {
+      const all = document.querySelectorAll('.accordion-content');
+      const allHeaders = document.querySelectorAll('.accordion-header span');
+      all.forEach((content, i) => {
+        if (i === idx) {
+          content.classList.toggle('show');
+          // byt till pil ner/upp
+          allHeaders[i].innerHTML = content.classList.contains('show') ? "&#9660;" : "&#9654;";
+        } else {
+          content.classList.remove('show');
+          allHeaders[i].innerHTML = "&#9654;";
+        }
+      });
     }
-    function closePDF() {
-      document.getElementById('pdfModal').classList.add('hidden');
-      document.getElementById('pdfFrame').src = '';
-      document.body.style.overflow = '';
-    }
-    // Stäng modal med Escape
-    document.addEventListener('keydown', function(e) {
-      if(e.key === "Escape") closePDF();
-    });
-    // Stäng modal när man klickar utanför boxen
-    document.getElementById('pdfModal').addEventListener('click', function(e) {
-      if (e.target === this) closePDF();
-    });
   </script>
 </body>
 </html>
