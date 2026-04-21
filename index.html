@@ -7,38 +7,41 @@
   <style>
     body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%);}
     .knapp { transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;}
-    .knapp:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.024);}
+    .knapp:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.016);}
   </style>
 </head>
 <body class="min-h-screen">
-  <header class="py-10">
+  <header class="py-8">
     <div class="max-w-3xl mx-auto text-center">
-      <h1 class="text-4xl font-extrabold text-purple-800 mb-3">Matematikbegrepp</h1>
-      <p class="text-lg text-gray-700 mb-4">Utforska matematiska områden genom begrepp, exempel och uppgifter.</p>
+      <h1 class="text-4xl font-extrabold text-purple-800 mb-2">Matematikbegrepp</h1>
+      <p class="text-lg text-gray-700 mb-4">Välj ett område för att utforska begrepp, exempel och uppgifter!</p>
       <p class="text-sm text-purple-700 font-semibold">Skapad av Maria </p>
     </div>
   </header>
   <main class="max-w-2xl mx-auto px-4">
-    <div class="grid gap-7">
-      <a href="procent.html" class="knapp rounded-2xl bg-white border border-purple-200 p-7 flex items-center shadow group hover:bg-purple-50 text-center justify-center font-semibold text-xl text-purple-700">
-       % Procent
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto py-4">
+      <a href="procent.html" class="knapp rounded-lg bg-white border border-purple-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-purple-50 text-center justify-center font-semibold text-base text-purple-700">
+        % Procent
       </a>
-      <a href="brak.html" class="knapp rounded-2xl bg-white border border-cyan-200 p-7 flex items-center shadow group hover:bg-cyan-50 text-center justify-center font-semibold text-xl text-cyan-700">
-       ➗ Bråk
+      <a href="brak.html" class="knapp rounded-lg bg-white border border-cyan-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-cyan-50 text-center justify-center font-semibold text-base text-cyan-700">
+        ➗ Bråk
       </a>
-      <a href="geometri.html" class="knapp rounded-2xl bg-white border border-yellow-200 p-7 flex items-center shadow group hover:bg-yellow-50 text-center justify-center font-semibold text-xl text-yellow-700">
-        Geometri
+      <a href="geometri.html" class="knapp rounded-lg bg-white border border-yellow-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-yellow-50 text-center justify-center font-semibold text-base text-yellow-700">
+        📐 Geometri
       </a>
-    <a href="taluppfattning.html" class="knapp rounded-2xl bg-white border border-orange-200 p-7 flex items-center shadow group hover:bg-orange-50 text-center justify-center font-semibold text-xl text-orange-700">
-  ➕➖✖️➗Taluppfattning
-</a>
-<a href="statistik.html" class="knapp rounded-2xl bg-white border border-cyan-200 p-7 flex items-center shadow group hover:bg-cyan-50 text-center justify-center font-semibold text-xl text-cyan-700">
- 📊 Statistik
-</a>
-<a href="algebra.html" class="knapp rounded-2xl bg-white border border-indigo-200 p-7 flex items-center shadow group hover:bg-indigo-50 text-center justify-center font-semibold text-xl text-indigo-700">
- 🧩 Algebra
-</a>
-   <
+      <a href="taluppfattning.html" class="knapp rounded-lg bg-white border border-orange-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-orange-50 text-center justify-center font-semibold text-base text-orange-700">
+        🔢 Taluppfattning
+      </a>
+      <a href="statistik.html" class="knapp rounded-lg bg-white border border-cyan-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-cyan-50 text-center justify-center font-semibold text-base text-cyan-700">
+        📊 Statistik
+      </a>
+      <a href="algebra.html" class="knapp rounded-lg bg-white border border-indigo-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-indigo-50 text-center justify-center font-semibold text-base text-indigo-700">
+        🧩 Algebra
+      </a>
+      <a href="raknesatt.html" class="knapp rounded-lg bg-white border border-pink-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-pink-50 text-center justify-center font-semibold text-base text-pink-700">
+        ➕➖✖️➗ De fyra räknesätten
+      </a>
+      <!-- Lägg till fler områden här om du vill -->
     </div>
   </main>
 </body>
