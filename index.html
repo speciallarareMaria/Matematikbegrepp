@@ -8,6 +8,32 @@
     body { background: linear-gradient(160deg, #f7e2fa, #eedbfd 90%);}
     .knapp { transition: box-shadow 0.18s, transform 0.18s; cursor: pointer;}
     .knapp:hover { box-shadow: 0 8px 32px #c299f480; transform: translateY(-2px) scale(1.016);}
+
+    /* =====================================================
+       UTSKRIFTS-CSS (används när användaren sparar som PDF)
+       Döljer allt på sidan utom begreppsöversiktsbilden,
+       så att PDF:en bara innehåller bilden — snygg för utskrift.
+       ===================================================== */
+    @media print {
+      body * { visibility: hidden; }
+      #begrepp-bild-sektion,
+      #begrepp-bild-sektion * { visibility: visible; }
+      #begrepp-bild-sektion {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+      }
+      #begrepp-bild {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+      /* Dölj nedladdningsknappen vid utskrift */
+      #pdf-knapp { display: none; }
+    }
   </style>
 </head>
 <body class="min-h-screen">
@@ -19,6 +45,44 @@
     </div>
   </header>
   <main class="max-w-2xl mx-auto px-4">
+
+    <!-- =====================================================
+         BEGREPPSÖVERSIKT — PNG-bild
+         Bilden visas centrerat med skugga och rundade hörn.
+         Under bilden finns en knapp för att ladda ner den
+         som PDF via webbläsarens inbyggda utskriftsdialog
+         (välj "Spara som PDF" i utskriftsdialogen).
+         ===================================================== -->
+    <section id="begrepp-bild-sektion" class="text-center mt-2 mb-8">
+      <h2 class="text-2xl font-bold text-purple-800 mb-2">📋 Begreppsöversikt</h2>
+      <p class="text-gray-600 text-sm mb-4">
+        En översikt över viktiga matematiska begrepp.
+        Klicka på knappen för att spara eller skriva ut som PDF.
+      </p>
+
+      <!-- Begreppsöversiktsbilden — visas responsivt med max-bredd -->
+      <img
+        id="begrepp-bild"
+        src="begrepp-oversikt.png"
+        alt="Begreppsöversikt — matematiska begrepp"
+        class="w-full max-w-xl mx-auto rounded-2xl shadow-lg border border-purple-100 mb-5"
+      />
+
+      <!-- Knapp för PDF-nedladdning via webbläsarens utskriftsdialog.
+           Välj "Spara som PDF" (eller "Microsoft Print to PDF") i dialogen. -->
+      <button
+        id="pdf-knapp"
+        type="button"
+        aria-label="Ladda ner begreppsöversikten som PDF — öppnar utskriftsdialogen"
+        class="inline-flex items-center gap-2 bg-purple-700 hover:bg-purple-900 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-300"
+        title="Öppnar utskriftsdialogen — välj 'Spara som PDF'"
+      >
+        <!-- Ikon och text på knappen -->
+        <span aria-hidden="true">📄</span> Ladda ner som PDF
+      </button>
+    </section>
+    <!-- Slut begreppsöversikt -->
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto py-4">
       <a href="procent.html" class="knapp rounded-lg bg-white border border-purple-200 px-4 py-3 flex items-center gap-2 shadow group hover:bg-purple-50 text-center justify-center font-semibold text-base text-purple-700">
         % Procent
@@ -44,5 +108,17 @@
       <!-- Lägg till fler områden här om du vill -->
     </div>
   </main>
+
+  <!-- =====================================================
+       JAVASCRIPT — Begreppsöversikt PDF-knapp
+       Lägger till klickhändelse på PDF-knappen.
+       window.print() öppnar webbläsarens utskriftsdialog
+       där användaren kan välja "Spara som PDF".
+       ===================================================== -->
+  <script>
+    document.getElementById('pdf-knapp').addEventListener('click', function () {
+      window.print();
+    });
+  </script>
 </body>
 </html>
